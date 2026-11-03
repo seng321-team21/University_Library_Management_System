@@ -1,0 +1,381 @@
+openapi: 3.1.0
+info:
+  title: University Library Management System API (UniLib)
+  version: 0.1.0
+  description: >-
+    Draft OpenAPI 3.1.0 specification for the University Library Management System
+    (UniLib). Supports resource discovery, reservation lifecycle, checkout/loan
+    tracking, and overdue handling.
+servers:
+  - url: http://localhost:8080/api/v1
+    description: Local development environment
+
+paths:
+  /books:
+    get:
+      summary: Search and list library books
+      operationId: listBooks
+      description: Retrieve catalog books filtered by search query, category, or availability status.
+      parameters:
+        - name: query
+          in: query
+          required: false
+          description: Search term matching title, author, or ISBN
+          schema:
+            type: string
+            example: "Clean Code"
+        - name: category
+          in: query
+          required: false
+          description: Book category or genre
+          schema:
+            type: string
+            example: "Computer Science"
+        - name: availableOnly
+          in: query
+          required: false
+          description: Filter for books with at least one physical copy available
+          schema:
+            type: boolean
+            default: true
+      responses:
+        '200':
+          description: Successfully retrieved list of books matching filters
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Book'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+
+  /books/{bookId}:
+    get:
+      summary: Get detailed book information
+      operationId: getBookById
+      parameters:
+        - name: bookId
+          in: path
+          required: true
+          description: Unique identifier of the book record
+          schema:
+            type: string
+            example: "BK-1042"
+      responses:
+        '200':
+          description: Detailed book record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BookDetail'
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+  /reservations:
+    post:
+      summary: Place a reservation hold on a book
+      operationId: createReservation
+      description: Allows an authenticated student/member to reserve an available or soon-to-be-available book.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NewReservation'
+      responses:
+        '201':
+          description: Reservation hold successfully created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Reservation'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          description: Missing or invalid authentication credentials
+        '403':
+          description: Member is restricted due to overdue fines or limit reached
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Problem'
+        '409':
+          description: Book is already reserved by another user or reservation conflicts
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Problem'
+
+  /reservations/{reservationId}/cancel:
+    put:
+      summary: Cancel an existing reservation
+      operationId: cancelReservation
+      parameters:
+        - name: reservationId
+          in: path
+          required: true
+          schema:
+            type: string
+            example: "RSV-9021"
+      responses:
+        '200':
+          description: Reservation cancelled successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Reservation'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+  /loans/checkout:
+    post:
+      summary: Record a physical book checkout (Loan)
+      operationId: checkoutBook
+      description: Librarian records physical handover of a book to an authenticated borrower.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NewLoan'
+      responses:
+        '201':
+          description: Book successfully loaned out
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Loan'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '403':
+          description: Action not allowed for current staff role
+        '409':
+          description: Book copy is currently marked as checked out or lost
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Problem'
+
+  /loans/{loanId}/return:
+    put:
+      summary: Record book return
+      operationId: returnBook
+      description: Librarian accepts returned physical book and closes active loan.
+      parameters:
+        - name: loanId
+          in: path
+          required: true
+          schema:
+            type: string
+            example: "LN-5501"
+      responses:
+        '200':
+          description: Book marked as returned
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Loan'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+components:
+  schemas:
+    Book:
+      type: object
+      required:
+        - id
+        - isbn
+        - title
+        - author
+        - category
+        - totalCopies
+        - availableCopies
+      properties:
+        id:
+          type: string
+          example: "BK-1042"
+        isbn:
+          type: string
+          example: "978-0132350884"
+        title:
+          type: string
+          example: "Clean Code: A Handbook of Agile Software Craftsmanship"
+        author:
+          type: string
+          example: "Robert C. Martin"
+        category:
+          type: string
+          example: "Software Engineering"
+        totalCopies:
+          type: integer
+          example: 4
+        availableCopies:
+          type: integer
+          example: 2
+
+    BookDetail:
+      allOf:
+        - $ref: '#/components/schemas/Book'
+        - type: object
+          properties:
+            shelfLocation:
+              type: string
+              example: "Floor 2 - Shelf B4"
+            publisher:
+              type: string
+              example: "Prentice Hall"
+            publicationYear:
+              type: integer
+              example: 2008
+
+    NewReservation:
+      type: object
+      required:
+        - bookId
+        - borrowerId
+      properties:
+        bookId:
+          type: string
+          example: "BK-1042"
+        borrowerId:
+          type: string
+          example: "STU-2023001"
+
+    Reservation:
+      type: object
+      required:
+        - id
+        - bookId
+        - borrowerId
+        - status
+        - reservedAt
+        - expiresAt
+      properties:
+        id:
+          type: string
+          example: "RSV-9021"
+        bookId:
+          type: string
+          example: "BK-1042"
+        borrowerId:
+          type: string
+          example: "STU-2023001"
+        status:
+          type: string
+          enum: [PENDING, CONFIRMED, CANCELLED, FULFILLED, EXPIRED]
+          example: "CONFIRMED"
+        reservedAt:
+          type: string
+          format: date-time
+          example: "2026-11-03T10:00:00Z"
+        expiresAt:
+          type: string
+          format: date-time
+          example: "2026-11-05T18:00:00Z"
+
+    NewLoan:
+      type: object
+      required:
+        - bookId
+        - borrowerId
+        - staffId
+        - dueDate
+      properties:
+        bookId:
+          type: string
+          example: "BK-1042"
+        borrowerId:
+          type: string
+          example: "STU-2023001"
+        staffId:
+          type: string
+          example: "STF-401"
+        dueDate:
+          type: string
+          format: date-time
+          example: "2026-11-19T17:00:00Z"
+
+    Loan:
+      type: object
+      required:
+        - id
+        - bookId
+        - borrowerId
+        - status
+        - checkoutDate
+        - dueDate
+      properties:
+        id:
+          type: string
+          example: "LN-5501"
+        bookId:
+          type: string
+          example: "BK-1042"
+        borrowerId:
+          type: string
+          example: "STU-2023001"
+        status:
+          type: string
+          enum: [ACTIVE, RETURNED, OVERDUE, LOST]
+          example: "ACTIVE"
+        checkoutDate:
+          type: string
+          format: date-time
+          example: "2026-11-03T11:00:00Z"
+        dueDate:
+          type: string
+          format: date-time
+          example: "2026-11-19T17:00:00Z"
+        returnedAt:
+          type: string
+          format: date-time
+          nullable: true
+          example: null
+
+    Problem:
+      type: object
+      required:
+        - title
+        - status
+        - code
+        - detail
+      properties:
+        title:
+          type: string
+          example: "Resource Conflict"
+        status:
+          type: integer
+          example: 409
+        code:
+          type: string
+          example: "COPY_UNAVAILABLE"
+        detail:
+          type: string
+          example: "All physical copies of this book are currently checked out or reserved."
+
+  responses:
+    BadRequest:
+      description: Invalid query parameters or malformed request payload
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Problem'
+    NotFound:
+      description: Requested book, reservation, or loan record not found
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Problem'
+    InternalServerError:
+      description: Unexpected internal system error
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Problem'
