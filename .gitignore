@@ -1,0 +1,20 @@
+
+# OS dosyaları
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE / editör dosyaları
+.idea/
+.vscode/
+*.iml
+*.swp
+
+# Ortam değişkenleri ve gizli bilgiler
+.env
+.env.*
+*.pem
+
+# Log ve geçici dosyalar
+*.log
+*.tmp
