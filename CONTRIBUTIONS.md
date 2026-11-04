@@ -105,7 +105,7 @@ https://github.com/seng321-team21/University_Library_Management_System/pull/45
 
 6. Eda Uluçay
 - **Student ID: 220205024
-- **GitHub Username: @edaaaulcy
+- **GitHub Username: [@edaaaulcy](https://github.com/edaaaulcy)
 - **Role: Quality Assurance (QA) Lead / Test Engineer
 
 - 
