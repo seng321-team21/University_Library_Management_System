@@ -8,8 +8,8 @@
 
 ---
 
-## 1. Eray Yıldırım
-- **Student ID:220201026
+## 1. Eray [Last Name]
+- **Student ID:** 220201026
 - **GitHub Username:** [@erayinyo07](https://github.com/erayinyo07)
 - **Role:** DevOps Engineer
 
@@ -24,12 +24,12 @@
 ### Evidence Links
 - **Release:** [Release v0.1.0-sprint1](https://github.com/seng321-team21/University_Library_Management_System/releases/tag/v0.1.0-sprint1)
 - **Assigned Issues:** [EN-02: Docker Compose setup and CI pipeline](https://github.com/seng321-team21/University_Library_Management_System/issues), [#11: Prepare Sprint 1 release tag v0.1.0](https://github.com/seng321-team21/University_Library_Management_System/issues/11)
-- **Pull Requests:** [PR #3: Setup Git-Flow, branch rules and templates](https://github.com/seng321-team21/University_Library_Management_System/pulls)
+- **Pull Requests:** [PR #3: Setup Git-Flow, branch rules and templates](https://github.com/seng321-team21/University_Library_Management_System/pull/3)
 
 ---
 
 ## 2. Rana Tokmak
-- **Student ID:220204035
+- **Student ID:** 220204035
 - **GitHub Username:** [@ranatokmak2001](https://github.com/ranatokmak2001)
 - **Role:** Product Owner
 
@@ -47,7 +47,7 @@
 ---
 
 ## 3. Berkay İnam
-- **Student ID:240201015
+- **Student ID:** 240201015
 - **GitHub Username:** [@berkay6767-wq](https://github.com/berkay6767-wq)
 - **Role:** Software Architect
 
@@ -60,12 +60,12 @@
 ### Evidence Links
 - **Specification:** [docs/openapi.yaml](https://github.com/seng321-team21/University_Library_Management_System/blob/main/docs/openapi.yaml)
 - **Assigned Issue:** [EN-01: Project skeleton and database schema](https://github.com/seng321-team21/University_Library_Management_System/issues)
-- **Pull Request:** [PR #4: Add OpenAPI 3.1 specification](https://github.com/seng321-team21/University_Library_Management_System/pulls)
+- **Pull Request:** [PR #4: Add OpenAPI 3.1 specification](https://github.com/seng321-team21/University_Library_Management_System/pull/4)
 
 ---
 
 ## 4. Ahmet Oba
-- **Student ID:240201024
+- **Student ID:** 240201024
 - **GitHub Username:** [@ahmet5743](https://github.com/ahmet5743)
 - **Role:** Scrum Master / Documentation Lead
 
@@ -74,22 +74,23 @@
 - Defined the team operating model, Scrum ceremony cadence, and peer review guidelines.
 - Standardized team branch naming conventions (`feature/<issue-id>-<description>`) and Conventional Commits practices.
 - Managed submission requirements, cross-referenced team deliverables, and prepared submission evidence.
+- Conducted peer code reviews and served as the approving reviewer for team Pull Requests.
 
 ### Evidence Links
 - **Report:** Sprint 1 Proposal, Vision & Operating Model Document
-- Approved Pull Requests (Code Reviews):
-https://github.com/seng321-team21/University_Library_Management_System/pull/1
-https://github.com/seng321-team21/University_Library_Management_System/pull/2
-https://github.com/seng321-team21/University_Library_Management_System/pull/3
-https://github.com/seng321-team21/University_Library_Management_System/pull/4
-https://github.com/seng321-team21/University_Library_Management_System/pull/44
-https://github.com/seng321-team21/University_Library_Management_System/pull/45
+- **Approved Pull Requests (Code Reviews):**
+  - [PR #1](https://github.com/seng321-team21/University_Library_Management_System/pull/1)
+  - [PR #2](https://github.com/seng321-team21/University_Library_Management_System/pull/2)
+  - [PR #3](https://github.com/seng321-team21/University_Library_Management_System/pull/3)
+  - [PR #4](https://github.com/seng321-team21/University_Library_Management_System/pull/4)
+  - [PR #44](https://github.com/seng321-team21/University_Library_Management_System/pull/44)
+  - [PR #45](https://github.com/seng321-team21/University_Library_Management_System/pull/45)
 - **Coordination:** Sprint 1 meeting notes and team operating guidelines
 
 ---
 
 ## 5. Ozan Kenan Güngör
-- **Student ID:220204044
+- **Student ID:** 220204044
 - **GitHub Username:** [@ozankenangungor](https://github.com/ozankenangungor)
 - **Role:** Implementation Lead / Developer
 
@@ -103,19 +104,17 @@ https://github.com/seng321-team21/University_Library_Management_System/pull/45
 
 ---
 
-6. Eda Uluçay
-- **Student ID: 220205024
-- **GitHub Username: @edaaaulcy
-- **Role: Quality Assurance (QA) Lead / Test Engineer
+## 6. Eda Uluçay
+- **Student ID:** 220205024
+- **GitHub Username:** [@edaaaulcy](https://github.com/edaaaulcy)
+- **Role:** Quality Assurance (QA) Lead / Test Engineer
 
-- 
 ### Responsibilities & Deliverables (Sprint 1)
 - Designed the Quality Assurance strategy and verification matrix for Sprint 1.
 - Validated Acceptance Criteria across all 22 User Stories to ensure testability and completeness.
 - Outlined non-functional test plans (performance under 2-second response time for search, role-based access control security verification).
-Prepared test cases and tracking criteria for upcoming functional sprints.
-
+- Prepared test cases and tracking criteria for upcoming functional sprints.
 
 ### Evidence Links
-Quality Assurance: Test scenarios and Acceptance Criteria verification in Sprint 1 documentation
-Backlog Reviews: Review notes on user story acceptance conditions
+- **Quality Assurance:** [Sprint 1 Test Scenarios & Acceptance Verification](https://github.com/seng321-team21/University_Library_Management_System/issues?q=is%3Aissue)
+- **Backlog Reviews:** [Review of User Story Acceptance Criteria](https://github.com/seng321-team21/University_Library_Management_System/issues)
