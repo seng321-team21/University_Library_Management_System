@@ -66,7 +66,7 @@
 
 ## 4. Ahmet Oba
 - **Student ID:240201024
-- **GitHub Username:** [@Ahmet-GitHub-Username]
+- **GitHub Username:** [@ahmet5743](https://github.com/ahmet5743)
 - **Role:** Scrum Master / Documentation Lead
 
 ### Responsibilities & Deliverables (Sprint 1)
@@ -77,13 +77,20 @@
 
 ### Evidence Links
 - **Report:** Sprint 1 Proposal, Vision & Operating Model Document
+- Approved Pull Requests (Code Reviews):
+https://github.com/seng321-team21/University_Library_Management_System/pull/1
+https://github.com/seng321-team21/University_Library_Management_System/pull/2
+https://github.com/seng321-team21/University_Library_Management_System/pull/3
+https://github.com/seng321-team21/University_Library_Management_System/pull/4
+https://github.com/seng321-team21/University_Library_Management_System/pull/44
+https://github.com/seng321-team21/University_Library_Management_System/pull/45
 - **Coordination:** Sprint 1 meeting notes and team operating guidelines
 
 ---
 
 ## 5. Ozan Kenan Güngör
 - **Student ID:220204044
-- **GitHub Username:** [@Ozan-GitHub-Username]
+- **GitHub Username:** [@ozankenangungor](https://github.com/ozankenangungor)
 - **Role:** Implementation Lead / Developer
 
 ### Responsibilities & Deliverables (Sprint 1)
