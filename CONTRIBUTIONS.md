@@ -89,18 +89,28 @@ https://github.com/seng321-team21/University_Library_Management_System/pull/45
 ---
 
 ## 5. Ozan Kenan Güngör
-- **Student ID:220204044
-- **GitHub Username:** [@ozankenangungor](https://github.com/ozankenangungor)
-- **Role:** Implementation Lead / Developer
 
-### Responsibilities & Deliverables (Sprint 1)
-- Evaluated local development toolchains and verified environment readiness.
-- Performed technical analysis and planning for `EN-03` (TR/EN localization setup and language bundle management).
-- Reviewed OpenAPI endpoints from an implementation and code-generation perspective.
+- **Student ID:** 220204044
+- **GitHub Username:** [@ozankenangungor](https://github.com/ozankenangungor)
+- **Role:** Implementation & Integration Engineer
+
+### Sprint 1 Contributions
+
+- Confirmed ownership of US-07, US-09, and US-17 for implementation in subsequent sprints.
+- Updated the ownership information of US-08 (#29) following the team's revised task allocation.
+
+### Planned Implementation Work
+
+- [US-07 (#28): Check out a copy by barcode](https://github.com/seng321-team21/University_Library_Management_System/issues/28) — Sprint 2, 8 story points.
+- [US-09 (#30): Check in a returned copy](https://github.com/seng321-team21/University_Library_Management_System/issues/30) — Sprint 2, 5 story points.
+- [US-17 (#38): Member dashboard](https://github.com/seng321-team21/University_Library_Management_System/issues/38) — Sprint 3, 5 story points.
 
 ### Evidence Links
-- **Assigned Issue:** [EN-03: TR/EN localization setup](https://github.com/seng321-team21/University_Library_Management_System/issues)
 
+- [US-07 (#28): Assigned implementation story](https://github.com/seng321-team21/University_Library_Management_System/issues/28)
+- [US-09 (#30): Assigned implementation story](https://github.com/seng321-team21/University_Library_Management_System/issues/30)
+- [US-17 (#38): Assigned implementation story](https://github.com/seng321-team21/University_Library_Management_System/issues/38)
+- [US-08 (#29): Ownership correction](https://github.com/seng321-team21/University_Library_Management_System/issues/29)
 ---
 
 6. Eda Uluçay
