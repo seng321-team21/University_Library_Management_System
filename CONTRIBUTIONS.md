@@ -111,6 +111,8 @@ https://github.com/seng321-team21/University_Library_Management_System/pull/45
 - [US-09 (#30): Assigned implementation story](https://github.com/seng321-team21/University_Library_Management_System/issues/30)
 - [US-17 (#38): Assigned implementation story](https://github.com/seng321-team21/University_Library_Management_System/issues/38)
 - [US-08 (#29): Ownership correction](https://github.com/seng321-team21/University_Library_Management_System/issues/29)
+- **Pull Request:** [PR #51: Correct Sprint 1 contributions](https://github.com/seng321-team21/University_Library_Management_System/pull/51)
+- **Commit:** [f986a0e: Correct Sprint 1 contributions](https://github.com/seng321-team21/University_Library_Management_System/commit/f986a0e71d995176efa0e9433f575dc3aa3b8344)
 ---
 
 6. Eda Uluçay
