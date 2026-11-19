@@ -56,6 +56,9 @@ paths:
     get:
       summary: Get detailed book information
       operationId: getBookById
+      description: >-
+        US-06 - Returns the book record with copy counts, an availability badge and
+        shelf location. All counts are derived from the current physical copy records.
       parameters:
         - name: bookId
           in: path
@@ -63,6 +66,7 @@ paths:
           description: Unique identifier of the book record
           schema:
             type: string
+            pattern: '^[A-Za-z0-9-]{1,32}$'
             example: "BK-1042"
       responses:
         '200':
@@ -71,6 +75,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/BookDetail'
+        '400':
+          $ref: '#/components/responses/BadRequest'
         '404':
           $ref: '#/components/responses/NotFound'
 
@@ -226,14 +232,56 @@ components:
         - type: object
           properties:
             shelfLocation:
-              type: string
+              type: ['string', 'null']
+              description: >-
+                Where the member should go: shelf of an available copy, otherwise the
+                most common shelf of the book's copies. Null when the book has no copies.
               example: "Floor 2 - Shelf B4"
+            availabilityStatus:
+              type: string
+              description: >-
+                Availability badge (US-06). AVAILABLE = at least one copy on the shelf;
+                ON_LOAN = no copy on the shelf but copies are on loan or held for a
+                reservation; UNAVAILABLE = no copy in circulation (lost, maintenance, none).
+              enum: [AVAILABLE, ON_LOAN, UNAVAILABLE]
+              example: "AVAILABLE"
+            copyStatusCounts:
+              type: object
+              description: Number of copies per copy status.
+              properties:
+                AVAILABLE: { type: integer, example: 2 }
+                ON_LOAN: { type: integer, example: 2 }
+                RESERVED: { type: integer, example: 0 }
+                MAINTENANCE: { type: integer, example: 0 }
+                LOST: { type: integer, example: 0 }
+            copies:
+              type: array
+              items:
+                $ref: '#/components/schemas/Copy'
             publisher:
               type: string
               example: "Prentice Hall"
             publicationYear:
               type: integer
               example: 2008
+
+    Copy:
+      type: object
+      required:
+        - barcode
+        - shelfLocation
+        - status
+      properties:
+        barcode:
+          type: string
+          example: "CP-1042-01"
+        shelfLocation:
+          type: string
+          example: "Floor 2 - Shelf B4"
+        status:
+          type: string
+          enum: [AVAILABLE, ON_LOAN, RESERVED, MAINTENANCE, LOST]
+          example: "AVAILABLE"
 
     NewReservation:
       type: object
