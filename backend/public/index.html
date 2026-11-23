@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UniLib - Book Availability</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header>
+    <h1>UniLib</h1>
+    <p>Book availability &amp; shelf location</p>
+  </header>
+
+  <main>
+    <form id="lookup" autocomplete="off">
+      <label for="bookId">Book ID</label>
+      <input id="bookId" name="bookId" placeholder="e.g. BK-1042" required pattern="[A-Za-z0-9\-]{1,32}">
+      <button type="submit">Show</button>
+    </form>
+
+    <p id="message" role="status" hidden></p>
+
+    <article id="book" hidden>
+      <div class="title-row">
+        <h2 id="title"></h2>
+        <span id="badge" class="badge"></span>
+      </div>
+      <p id="meta" class="meta"></p>
+
+      <dl class="summary">
+        <div><dt>Available copies</dt><dd id="available"></dd></div>
+        <div><dt>Total copies</dt><dd id="total"></dd></div>
+        <div><dt>Shelf location</dt><dd id="shelf"></dd></div>
+      </dl>
+
+      <h3>Copies</h3>
+      <table>
+        <thead><tr><th>Barcode</th><th>Shelf location</th><th>Status</th></tr></thead>
+        <tbody id="copies"></tbody>
+      </table>
+    </article>
+  </main>
+
+  <script src="/book.js" type="module"></script>
+</body>
+</html>

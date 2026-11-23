@@ -1,0 +1,54 @@
+{
+  "books": [
+    {
+      "id": "BK-1042",
+      "isbn": "978-0132350884",
+      "title": "Clean Code: A Handbook of Agile Software Craftsmanship",
+      "author": "Robert C. Martin",
+      "category": "Software Engineering",
+      "publisher": "Prentice Hall",
+      "publicationYear": 2008
+    },
+    {
+      "id": "BK-1043",
+      "isbn": "978-0201633610",
+      "title": "Design Patterns: Elements of Reusable Object-Oriented Software",
+      "author": "Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides",
+      "category": "Software Engineering",
+      "publisher": "Addison-Wesley",
+      "publicationYear": 1994
+    },
+    {
+      "id": "BK-2001",
+      "isbn": "978-9750719387",
+      "title": "Çalıkuşu",
+      "author": "Reşat Nuri Güntekin",
+      "category": "Turkish Literature",
+      "publisher": "İnkılap Kitabevi",
+      "publicationYear": 1922
+    },
+    {
+      "id": "BK-3005",
+      "isbn": "978-0262033848",
+      "title": "Introduction to Algorithms",
+      "author": "Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein",
+      "category": "Computer Science",
+      "publisher": "MIT Press",
+      "publicationYear": 2009
+    }
+  ],
+  "copies": [
+    { "barcode": "CP-1042-01", "bookId": "BK-1042", "shelfLocation": "Floor 2 - Shelf B4", "status": "AVAILABLE" },
+    { "barcode": "CP-1042-02", "bookId": "BK-1042", "shelfLocation": "Floor 2 - Shelf B4", "status": "AVAILABLE" },
+    { "barcode": "CP-1042-03", "bookId": "BK-1042", "shelfLocation": "Floor 2 - Shelf B4", "status": "ON_LOAN" },
+    { "barcode": "CP-1042-04", "bookId": "BK-1042", "shelfLocation": "Reserve Desk - R1", "status": "ON_LOAN" },
+
+    { "barcode": "CP-1043-01", "bookId": "BK-1043", "shelfLocation": "Floor 2 - Shelf B5", "status": "ON_LOAN" },
+    { "barcode": "CP-1043-02", "bookId": "BK-1043", "shelfLocation": "Floor 2 - Shelf B5", "status": "RESERVED" },
+
+    { "barcode": "CP-2001-01", "bookId": "BK-2001", "shelfLocation": "Floor 1 - Shelf T2", "status": "LOST" },
+
+    { "barcode": "CP-3005-01", "bookId": "BK-3005", "shelfLocation": "Floor 3 - Shelf C1", "status": "MAINTENANCE" },
+    { "barcode": "CP-3005-02", "bookId": "BK-3005", "shelfLocation": "Floor 3 - Shelf C2", "status": "AVAILABLE" }
+  ]
+}
