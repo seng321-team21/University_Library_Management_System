@@ -2,7 +2,7 @@
 
 const BADGE_LABELS = {
   AVAILABLE: 'Available on shelf',
-  ON_LOAN: 'All copies on loan',
+  ON_LOAN: 'On loan / on hold',
   UNAVAILABLE: 'Not available',
 };
 
