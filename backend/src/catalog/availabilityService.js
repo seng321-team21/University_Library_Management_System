@@ -37,13 +37,18 @@ function badgeFor(counts) {
 
 /**
  * Primary shelf location shown on the book page: where the member should go.
- * Prefers the shelf of an available copy; otherwise the most common shelf.
+ * Prefers the shelf of an available copy; otherwise the most common shelf of the
+ * copies on loan or on hold. Lost and maintenance copies are ignored; returns
+ * null when no copy is left in circulation.
  */
 function primaryShelfLocation(copies) {
   const available = copies.find((c) => c.status === CopyStatus.AVAILABLE);
   if (available) return available.shelfLocation;
+  // Lost copies and copies in maintenance are not on any shelf a member can visit.
+  const locatable = copies.filter((c) => IN_CIRCULATION.has(c.status));
+  if (locatable.length === 0) return null;
   const freq = new Map();
-  copies.forEach((c) => freq.set(c.shelfLocation, (freq.get(c.shelfLocation) ?? 0) + 1));
+  locatable.forEach((c) => freq.set(c.shelfLocation, (freq.get(c.shelfLocation) ?? 0) + 1));
   let best = null;
   for (const [location, n] of freq) if (best === null || n > freq.get(best)) best = location;
   return best;

@@ -70,6 +70,21 @@ test('shelf location falls back to the most common shelf when nothing is availab
   assert.equal(service.getBookDetail('BK-1').shelfLocation, 'Floor 2 - B4');
 });
 
+test('shelf location ignores lost and maintenance copies and is null when none are left', () => {
+  const mixed = serviceWith([
+    copy('C1', 'BK-1', CopyStatus.LOST, 'Floor 1 - T2'),
+    copy('C2', 'BK-1', CopyStatus.MAINTENANCE, 'Floor 1 - T2'),
+    copy('C3', 'BK-1', CopyStatus.ON_LOAN, 'Floor 2 - B4'),
+  ]);
+  assert.equal(mixed.service.getBookDetail('BK-1').shelfLocation, 'Floor 2 - B4');
+
+  const none = serviceWith([
+    copy('C1', 'BK-1', CopyStatus.LOST, 'Floor 1 - T2'),
+    copy('C2', 'BK-1', CopyStatus.MAINTENANCE, 'Repair Room'),
+  ]);
+  assert.equal(none.service.getBookDetail('BK-1').shelfLocation, null);
+});
+
 test('availability reflects the current record after a copy status changes', () => {
   const { repository, service } = serviceWith([copy('C1', 'BK-1', CopyStatus.AVAILABLE)]);
   assert.equal(service.getBookDetail('BK-1').availabilityStatus, AvailabilityBadge.AVAILABLE);
