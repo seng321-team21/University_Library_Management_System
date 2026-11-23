@@ -8,6 +8,7 @@
 | Story Points | 3 |
 | Requirement | FR-03 |
 | Sprint | Sprint 2 |
+| GitHub Issue | #27 |
 | Owner | Rana Tokmak (Product Owner) |
 | Dependencies | US-03 (Add Book), US-05 (Catalog Search) |
 
@@ -20,9 +21,9 @@
 1. **Copy counts are accurate.** Given a book with physical copies, when a member opens the book page, then the total copy count and the available copy count match the current copy records in the database.
 2. **Availability badge.** The page shows one badge derived from the copy statuses:
    - `AVAILABLE` — at least one copy is on the shelf.
-   - `ON_LOAN` — no copy is on the shelf, but at least one copy is on loan or held for a reservation.
+   - `ON_LOAN` (shown as "On loan / on hold") — no copy is on the shelf, but at least one copy is on loan or held for a reservation.
    - `UNAVAILABLE` — no copy is in circulation (all lost / in maintenance, or the book has no copies).
-3. **Shelf location.** The page shows where the member should go: the shelf of an available copy; if none is available, the shelf where most copies are kept.
+3. **Shelf location.** The page shows where the member should go: the shelf of an available copy; if none is available, the shelf where most copies on loan or on hold are kept. Lost and maintenance copies are not counted; if no copy is left in circulation, no shelf location is shown (`null`).
 4. **Per-copy list.** Every copy is listed with its barcode, shelf location and status.
 5. **Always current.** After a checkout (US-07) or check-in (US-09) changes a copy's status, the next request reflects the change. Counts are computed from copy records, never stored separately.
 6. **Errors.** An unknown book returns `404` with an RFC 7807 Problem (`code: BOOK_NOT_FOUND`); an invalid id returns `400` (`code: INVALID_BOOK_ID`).
@@ -31,7 +32,7 @@
 
 - [x] `GET /api/v1/books/{bookId}` implemented and documented in `docs/openapi.yaml` (`BookDetail`, new `Copy` schema).
 - [x] Member-facing availability page (`backend/public/`).
-- [x] Unit tests for the availability rules and API tests for the endpoint (`npm test`, 19 tests).
+- [x] Unit tests for the availability rules and API tests for the endpoint (`npm test`, 20 tests).
 - [ ] Peer review by at least one teammate (QA: Türkan Eda).
 - [ ] Merged into `develop`.
 

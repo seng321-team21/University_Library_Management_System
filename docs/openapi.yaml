@@ -235,7 +235,8 @@ components:
               type: ['string', 'null']
               description: >-
                 Where the member should go: shelf of an available copy, otherwise the
-                most common shelf of the book's copies. Null when the book has no copies.
+                most common shelf of the copies on loan or on hold. Lost and maintenance
+                copies are ignored; null when no copy is left in circulation.
               example: "Floor 2 - Shelf B4"
             availabilityStatus:
               type: string
