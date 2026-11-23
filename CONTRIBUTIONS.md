@@ -115,19 +115,36 @@ https://github.com/seng321-team21/University_Library_Management_System/pull/45
 - **Commit:** [f986a0e: Correct Sprint 1 contributions](https://github.com/seng321-team21/University_Library_Management_System/commit/f986a0e71d995176efa0e9433f575dc3aa3b8344)
 ---
 
-6. Eda Uluçay
-- **Student ID: 220205024
-- **GitHub Username: [@edaaaulcy](https://github.com/edaaaulcy)
-- **Role: Quality Assurance (QA) Lead / Test Engineer
+## 6. Türkan Eda Uluçay
 
-- 
+- **Student ID:** 220205024
+- **GitHub Username:** [@edaaaulcy](https://github.com/edaaaulcy)
+- **Role:** QA & Test Automation Engineer
+
 ### Responsibilities & Deliverables (Sprint 1)
-- Designed the Quality Assurance strategy and verification matrix for Sprint 1.
-- Validated Acceptance Criteria across all 22 User Stories to ensure testability and completeness.
-- Outlined non-functional test plans (performance under 2-second response time for search, role-based access control security verification).
-Prepared test cases and tracking criteria for upcoming functional sprints.
 
+- Designed the Quality Assurance strategy and verification approach for the project.
+- Reviewed the acceptance criteria of the 22 user stories for testability and completeness.
+- Outlined the first non-functional test targets (search response time under 2 seconds, role-based access control).
+
+### Responsibilities & Deliverables (Sprint 2)
+
+- **Non-functional requirements & quality measures (Sprint 2 deliverable 2):** specified 13 measurable NFRs (NFR-01 … NFR-13) mapped to ISO/IEC 25010, each with metric, target, measurement tool and pass/fail criterion; defined quality gates, process metrics, defect severity levels and the verification schedule.
+- **Acceptance test plan & traceability matrix:** test levels and tools, environment and test data, entry/exit criteria, defect workflow, Given/When/Then acceptance scenarios for the Sprint 2 stories (US-05, US-06, US-07, US-09), and a full FR → user story → test → NFR traceability matrix.
+- **Refined requirements for my stories (part of deliverable 1 – SRS & refined backlog):** business rules, acceptance criteria, required OpenAPI changes and test cases for US-08, US-11, US-13 and US-15.
+- **QA consistency audit:** compared `docs/openapi.yaml` with `docs/architecture.md` and reported 9 inconsistencies to be fixed before Sprint 3.
+- **Code review:** QA review of PR #52 (US-06); requested changes for a shelf-location defect on lost copies and a misleading badge label.
 
 ### Evidence Links
-Quality Assurance: Test scenarios and Acceptance Criteria verification in Sprint 1 documentation
-Backlog Reviews: Review notes on user story acceptance conditions
+
+- **Pull Request:** [PR #53: Sprint 2 NFR & quality measures, acceptance test plan and story SRS](https://github.com/seng321-team21/University_Library_Management_System/pull/53)
+- **Documents:**
+  - [docs/sprint2/nfr-quality-measures.md](https://github.com/seng321-team21/University_Library_Management_System/blob/feature/qa-nfr-quality-measures/docs/sprint2/nfr-quality-measures.md)
+  - [docs/sprint2/acceptance-test-plan.md](https://github.com/seng321-team21/University_Library_Management_System/blob/feature/qa-nfr-quality-measures/docs/sprint2/acceptance-test-plan.md)
+  - [docs/sprint2/US-08-block-ineligible-loans.md](https://github.com/seng321-team21/University_Library_Management_System/blob/feature/qa-nfr-quality-measures/docs/sprint2/US-08-block-ineligible-loans.md)
+  - [docs/sprint2/US-11-reserve-a-book.md](https://github.com/seng321-team21/University_Library_Management_System/blob/feature/qa-nfr-quality-measures/docs/sprint2/US-11-reserve-a-book.md)
+  - [docs/sprint2/US-13-cancel-reservation.md](https://github.com/seng321-team21/University_Library_Management_System/blob/feature/qa-nfr-quality-measures/docs/sprint2/US-13-cancel-reservation.md)
+  - [docs/sprint2/US-15-calculate-fines.md](https://github.com/seng321-team21/University_Library_Management_System/blob/feature/qa-nfr-quality-measures/docs/sprint2/US-15-calculate-fines.md)
+- **Assigned Issues:** [US-08 (#29)](https://github.com/seng321-team21/University_Library_Management_System/issues/29), [US-11 (#32)](https://github.com/seng321-team21/University_Library_Management_System/issues/32), [US-13 (#34)](https://github.com/seng321-team21/University_Library_Management_System/issues/34), [US-15 (#36)](https://github.com/seng321-team21/University_Library_Management_System/issues/36)
+- **Code Reviews:** [PR #52 – QA review (changes requested)](https://github.com/seng321-team21/University_Library_Management_System/pull/52)
+
