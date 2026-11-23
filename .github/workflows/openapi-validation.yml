@@ -1,0 +1,27 @@
+name: OpenAPI Specification Validation
+
+on:
+  push:
+    branches: [ main, develop ]
+    paths:
+      - '**/openapi.yaml'
+      - '.github/workflows/openapi-validation.yml'
+  pull_request:
+    branches: [ main, develop ]
+    paths:
+      - '**/openapi.yaml'
+
+jobs:
+  validate-openapi:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Validate OpenAPI Specification
+        run: npx @redocly/cli lint $(find . -name "openapi.yaml")
